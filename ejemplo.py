@@ -124,6 +124,22 @@ def corregir_ortografia(texto):
 
     return ' '.join(palabras_corregidas)
 
+def validar_telefono_mexico(telefono):
+    patron_telefono_mexico = r"^\+52[6-9][0-9]{9}$"
+    
+    if re.match(patron_telefono_mexico, telefono):
+        return True
+    else:
+        return False
+# Ejemplo de uso
+telefono_usuario = input("Introduce tu número de teléfono con el prefijo +52: ")
+
+if validar_telefono_mexico(telefono_usuario):
+    print("El número de teléfono es válido.")
+else:
+    print("El número de teléfono no es válido. Debe comenzar con +52 y tener 10 dígitos en total.")
+
+
 # Función de lematización
 def lematizar_texto(texto):
     doc = nlp(texto)
